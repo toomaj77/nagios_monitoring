@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ps -ef | grep /sbin/auditd | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "auditd OK - process running"
+
+else
+
+   echo "auditd CRITICAL - No process running!"
+   exit 2
+
+fi

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ps -ef | grep /usr/sbin/rsyslogd | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "rsyslogd OK - process running"
+
+else
+
+   echo "rsyslogd CRITICAL - No process running!"
+   exit 2
+
+fi

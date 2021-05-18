@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ps -ef | grep /usr/sbin/snmpd | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "SNMP OK - process running"
+
+else
+
+   echo "SNMP CRITICAL - No process running!"
+   exit 2
+
+fi
+

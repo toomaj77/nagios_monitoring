@@ -1,0 +1,10 @@
+{% if location in ["alpha"] %}
+  {% set proxy = 'admzproxyout.risk.regn.net' %}
+{% elif location in ["boca"] %}
+  {% set proxy = 'bdmzproxyout.risk.regn.net' %}
+{% elif location in ["ntt"] %}
+  {% set proxy = 'ntt-outboundproxy.risk.regn.net' %}
+{% elif location in ["ngd"] %}
+  {% set proxy = 'ngd-outboundproxy.risk.regn.net' %}
+{% endif %}
+https_proxy={{proxy}}:80

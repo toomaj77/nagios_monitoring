@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ps -ef | grep /sbin/sshd | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "SSH OK - process running"
+
+else
+
+   echo "SSH CRITICAL - No process running!"
+   exit 2
+
+fi
+

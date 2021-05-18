@@ -1,0 +1,60 @@
+#!/usr/bin/env /usr/bin/python
+
+import os
+import sys
+import datetime
+import json
+import re
+
+##### GET HOSTID
+try:
+    rawid = open('/etc/qualys/hostid', 'r').read()
+    hostid = rawid.replace('\n', '')
+except:
+    hostid = 'unknown'
+
+##### COMPLIANCE
+
+# compliance_age is the age that we consider something still compliant.
+# the current value of 2 is so that issues relating to events outside of the server do not trigger us to investigate.
+compliance_age = 2
+
+# comp is the description of compliance that we generate for ansible facts.
+comp = "compliant"
+
+# ncomp is the description of noncompliance that we generate for ansible facts.
+ncomp = "noncompliant"
+
+### Get the local server date
+today = datetime.datetime.today()
+
+### Get the age of connection to qualys
+# scan_text is the string that we look for that confirms the scan was successful
+try:
+    upload = ''
+    upload_text = "Http request completed successfully: 200"
+    f = open('/var/log/qualys/qualys-cloud-agent.log')
+    for line in reversed(f.readlines()):
+        if re.search(upload_text, line):
+            upload = datetime.datetime.strptime(line[0:10], '%Y-%m-%d')
+            break
+    # calculating the scan age
+    upload_age = (today.date() - upload.date()).days
+    if upload_age in range(0,compliance_age):
+        upload_verdict = comp
+    else:
+        upload_verdict = ncomp
+except:
+    upload_verdict = 'unknown'
+
+##### PRINT FACT
+# dictionary for fact
+c = {}
+c["compliance_test_days"] = compliance_age
+c["hostid"] = hostid
+c["last_upload"] = upload_verdict
+
+### Printing the output for the clamav.fact
+print(json.dumps(c))
+
+exit()

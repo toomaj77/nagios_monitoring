@@ -1,0 +1,161 @@
+define hostgroup {
+         hostgroup_name servers
+         alias Linux Servers
+}
+
+
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        SSH
+        check_command              check_nrpe!SSH
+        notifications_enabled  1
+        check_interval         5
+}
+
+
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        Qualys_agent
+        check_command              check_nrpe!QUALYS
+        notifications_enabled  1
+        check_interval         5
+}
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        CPU load
+        check_command              check_nrpe!CPU
+        notifications_enabled  1
+        check_interval         5 
+}
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        NTP Check
+        check_command              check_nrpe_1arg!check_ntp_peer
+        notifications_enabled  1
+        check_interval         5
+}
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        /var/spool
+        check_command              check_nrpe!var_spool_check
+        notifications_enabled  1
+        check_interval         5
+}
+
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        Mount_Point_Check
+        check_command              check_nrpe!Mount_Check
+        notifications_enabled  1
+        check_interval         5
+}
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        Cron.d
+        check_command              check_nrpe!CRON
+        notifications_enabled  1
+        check_interval         5
+}
+
+
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        NRPE
+        check_command              check_nrpe!NRPE
+        notifications_enabled  1
+        check_interval         5      
+}
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        SNMP
+        check_command              check_nrpe!SNMP
+        notifications_enabled  1
+        check_interval         5
+}
+
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        Memory_Usage
+        check_command              check_nrpe!check_mem_usage
+        notifications_enabled  1
+        check_interval         5
+}
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        SSSD
+        check_command              check_nrpe!SSSD
+        notifications_enabled  1
+        check_interval         1440
+}
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        Audit.d
+        check_command              check_nrpe!AUDIT
+        notifications_enabled  1
+        check_interval         5
+}
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        rsyslog.d
+        check_command              check_nrpe!RSYSLOG
+        notifications_enabled  1
+        check_interval         5
+}
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        /var/log Usage
+        check_command              check_nrpe!var_log_check
+        notifications_enabled  1
+        check_interval         5
+}
+
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        fail2ban
+        check_command              check_nrpe!fail2ban
+        notifications_enabled  1
+        check_interval         5
+}
+
+
+define service {
+        use                        generic-service
+        hostgroup_name             servers
+        service_description        Wazuh
+        check_command              check_nrpe!WAZUH
+        notifications_enabled  1
+        check_interval         1440
+}
+
+
+

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+ps -ef | grep qualys-cloud-agent | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "qualys_agent OK - process running"
+
+else
+
+   echo "qualys_agent CRITICAL - No process running!"
+   exit 2
+
+fi
+
+
+
+
+

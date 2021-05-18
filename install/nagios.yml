@@ -1,0 +1,34 @@
+---
+
+- hosts: all:!switches:!oobservers:!idrac
+  user: centos
+  become: true
+  tasks: []
+
+  
+# Client
+- hosts: all:!switches:!oobservers:!nagios:!idrac
+  user: centos
+  become: true
+  roles:
+    - { role: nagios_client }
+  
+# Server
+- hosts: nagios
+  user: centos
+  become: true
+  roles:
+    - { role: nagios }
+
+
+- hosts: servers
+  user: centos
+
+  tasks:
+    - shell: host {{ groups['nagios'][0] }} | awk '{ print $4 }'
+      register: mgm_IP
+      delegate_to: localhost
+
+
+###########################################
+#  remote_user: "{{ ansible_system_user }}"

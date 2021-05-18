@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ps -ef | grep /usr/sbin/nrpe | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "NRPE OK - process running"
+
+else
+
+   echo "NRPE CRITICAL - No process running!"
+   exit 2
+
+fi
+

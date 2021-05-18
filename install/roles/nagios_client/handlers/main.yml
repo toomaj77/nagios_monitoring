@@ -1,0 +1,13 @@
+---
+- name: restart iptables
+  become: true
+  service:
+    name: iptables
+    state: restarted
+
+# handlers file for qualys_agent
+- name: restart qualys-cloud-agent
+  service:
+    name: qualys-cloud-agent
+    state: restarted
+    enabled: yes

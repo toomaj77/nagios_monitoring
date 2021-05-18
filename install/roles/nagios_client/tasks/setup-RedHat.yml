@@ -1,0 +1,19 @@
+---
+# tasks file for qualys_agent on RedHat
+
+- name: RPM Download Latest Version of Qualys Cloud Agent
+  copy:
+    src: qualys-cloud-agent.x86_64.rpm
+    dest: /tmp/qualys-cloud-agent.x86_64.rpm
+
+- name: Execute the Installation Script on RPM
+  yum:
+    name: /tmp/qualys-cloud-agent.x86_64.rpm
+    state: present
+  become: yes
+  become_method: sudo
+
+- name: Execute the Activation Script
+  shell: /usr/local/qualys/cloud-agent/bin/qualys-cloud-agent.sh ActivationId={{ activationid }} CustomerId={{ customerid }}
+  become: yes
+  become_method: sudo

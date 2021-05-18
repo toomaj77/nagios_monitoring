@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ps -ef | grep /usr/sbin/chronyd | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "Chronyd OK - process running"
+
+else
+
+   echo "Chronyd CRITICAL - No process running!"
+   exit 2
+
+fi
+

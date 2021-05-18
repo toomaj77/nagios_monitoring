@@ -1,0 +1,68 @@
+#!/bin/bash
+
+function usage() {
+  echo "$0 script reads meminfo from proc to get the memory usage";
+  echo "Usage:"
+  echo "-w #            Percent Warning Threshold"
+  echo "-c #            Percent Critical Threshold"
+  exit 3
+} # END usage
+
+# Variables
+warn=999999
+crit=999999
+exit_code=0
+msg="OK: "
+
+# Parse user options
+while getopts "hw:c:" opt; do
+  case ${opt} in
+    h )
+      usage
+      ;;
+    w )
+      warn=$OPTARG
+      ;;
+    c )
+      crit=$OPTARG
+      ;;
+   \? )
+     usage
+     ;;
+  esac
+done
+shift $((OPTIND -1))
+
+# Pull the CPU information from TOP
+array=( $(cat /proc/meminfo | egrep 'MemTotal|MemFree|Buffers|Cached' |awk '{print $1 " " $2}' |tr '\n' ' ' |tr -d ':' |awk '{ printf("%i %i %i %i %i", $2, $4, $6, $8, $10) }') )
+
+memTotal_k=${array[0]}
+memTotal_b=$(($memTotal_k*1024))
+memFree_k=${array[1]}
+memFree_b=$(($memFree_k*1024))
+memBuffer_k=${array[2]}
+memBuffer_b=$(($memBuffer_k*1024))
+memCache_k=${array[3]}
+memCache_b=$(($memCache_k*1024))
+memTotal_m=$(($memTotal_k/1024))
+memFree_m=$(($memFree_k/1024))
+memBuffer_m=$(($memBuffer_k/1024))
+memCache_m=$(($memCache_k/1024))
+memUsed_b=$(($memTotal_b-$memFree_b-$memBuffer_b-$memCache_b))
+memUsed_m=$(($memTotal_m-$memFree_m-$memBuffer_m-$memCache_m))
+memUsedPrc=$((($memUsed_b*100)/$memTotal_b))
+
+# Figure out exit code to use
+if [ $memUsedPrc -ge $warn ]; then
+  msg="WARNING - CPU Usage Exceeded $warn % threshold: "
+exit_code=1
+fi
+
+if [ $memUsedPrc -ge $crit ]; then
+  msg="CRITICAL - CPU Usage Exceeded $crit % threshold: "
+  exit_code=2
+fi
+
+echo "$msg$memUsedPrc % | memory_usage=$memUsedPrc;$warn;$crit;"
+exit $exit_code
+

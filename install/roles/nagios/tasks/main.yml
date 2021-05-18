@@ -1,0 +1,659 @@
+---
+
+- name: Check Operating System
+  fail:
+    msg="You're not running a supported operating system (CentOS or RHEL 7+)"
+  when: ((ansible_os_family != "RedHat") or (ansible_distribution_major_version|int < 7))
+
+- name: Install HTTPD,OpenSSL,Perl,wget
+  yum:
+    name:
+      - wget
+      - httpd
+      - perl-JSON
+      - perl-CGI
+      - perl-libwww-perl
+      - httpd-tools
+      - mod_ssl
+      - openssl
+      - openssl-libs
+    state: present
+  become: true
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+
+
+- name: Install nagios packages and common plugins
+  yum:
+    name:
+      - epel-release
+      - nagios
+      - nagios-common
+      - nagios-plugins-ssh
+      - nagios-plugins-tcp
+      - nagios-plugins-http
+      - nagios-plugins-load
+      - nagios-plugins-nrpe
+      - nagios-plugins-uptime
+      - nagios-plugins-swap
+      - nagios-plugins-ping
+      - nagios-plugins-procs
+      - nagios-plugins-users
+      - nagios-plugins-disk
+      - nagios-plugins-dns
+      - libsemanage-python
+      - python-pip
+      - openssl
+      - java
+    state: present
+  become: true
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+
+#Centos8
+
+
+- name: Install required packages for Centos8
+  yum:
+    name:
+      - dnf 
+      - gcc 
+      - glibc 
+      - glibc-common 
+      - wget 
+      - gd 
+      - gd-devel 
+      - perl 
+      - postfix
+    state: present
+  become: true
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+
+- name: Get Nagios core
+  shell: wget https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios-4.4.5/nagios-4.4.5.tar.gz
+  environment:
+    http_proxy: http://bdmzproxyout.risk.regn.net:80
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  become: true
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+
+- name: Extract the tarball
+  command: tar -xvf /home/centos/nagios-4.4.5.tar.gz
+  become: true
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+- name: Install Nagios core on Centos 8
+  command: /home/centos/nagios-4.4.5/./configure 
+  become: true
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+
+#- name: Configure Nagios
+#  command: make all
+#  become: true
+#  when:
+#    - ansible_distribution == "CentOS"
+#    - ansible_distribution_major_version == "8"
+
+#- name: Configure Nagios
+#  command: make install
+#  become: true
+#  when:
+#    - ansible_distribution == "CentOS"
+#    - ansible_distribution_major_version == "8"
+
+
+
+- name: Configure Nagios 
+  command: make {{ item }}
+  with_items:
+    - install-init
+    - install-daemoninit
+    - install-commandmode
+#    - install-config
+#    - install-webconf
+    - install-exfoliation
+  become: true
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+ 
+####################################
+
+
+- name: Install Perl dependencies
+  yum:
+    name:
+      - perl-IPC-Run
+      - perl-IO-Tty
+    state: present
+  become: true
+  when:
+    - supermicro_enable_checks|bool
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+
+- name: Check if nagios.conf exists
+  stat:
+    path: /etc/httpd/conf.d/nagios.conf
+  register: NAG_HTTP_result
+
+
+- name: Setup nagios SSL HTTPD vhost
+  copy: src=nagios.conf dest=/etc/httpd/conf.d/
+  become: true
+  when:
+    - NAG_HTTP_result.stat.exists == False
+  
+- name: Check nagios Users
+  stat: path=/etc/nagios/passwd
+  ignore_errors: true
+  register: nagios_user_pwfile_exists
+  become: true
+
+
+- name: Check if /etc/nagios directory exists
+  stat:
+    path: /etc/nagios/
+  register: NAGIOS_result
+
+- name: Create /etc/nagios directory
+  file:
+    path: /etc/nagios
+    state: directory
+  become: true
+  when:
+    - NAGIOS_result.stat.exists == False
+
+
+- name: Check if private directory exists
+  stat:
+    path: /etc/nagios/private/
+  register: PRIV_result
+
+- name: Create /etc/nagios/private directory
+  file:
+    path: /etc/nagios/private
+    state: directory
+  become: true
+  when:
+    - PRIV_result.stat.exists == False
+
+
+- name: Create empty password file
+  command: touch /etc/nagios/passwd
+  args:
+    creates: /etc/nagios/passwd
+  when: nagios_user_pwfile_exists != 0
+  become: true
+ 
+
+- name: Create nagios admin user
+  command: htpasswd -b -c /etc/nagios/passwd {{nagios_username}} {{nagios_password}}
+  ignore_errors: true
+  when: nagios_user_pwfile_exists != 0
+  become: true
+
+- name: Create nagios guest user
+  command: htpasswd -b /etc/nagios/passwd {{nagios_ro_username}} {{nagios_ro_password}}
+  when: nagios_create_guest_user|bool
+  become: true
+
+- name: Check if nagios.cfg exists
+  stat:
+    path: /etc/nagios/nagios.cfg
+  register: nagios_result
+
+
+- name: Copy nagios template if nagios.cfg does not exist
+  copy: src=nagios.cfg dest=/etc/nagios/nagios.cfg
+  become: true
+  when:
+    - nagios_result.stat.exists == False
+
+
+- name: Create nagios socket tmp files
+  file:
+    path={{supermicro_ipmicfg_path}}
+    state=directory
+    owner=nagios
+    group=nagios
+    mode=0777
+    seuser=system_u
+  become: true
+
+- name: Check if conf.d directory exists
+  stat:
+    path: /etc/nagios/conf.d/
+  register: confd_result
+
+- name: Create conf.d directory
+  file:
+    path: /etc/nagios/conf.d
+    state: directory
+  become: true
+  when:
+    - confd_result.stat.exists == False
+
+
+- name: Check if hostgroups directory exists
+  stat:
+    path: /etc/nagios/hostgroups/
+  register: hostgroups_result
+
+- name: Create hostgroups directory
+  file:
+    path: /etc/nagios/hostgroups
+    state: directory
+  become: true
+  when:
+    - hostgroups_result.stat.exists == False
+
+
+- name: Check if servers directory exists
+  stat:
+    path: /etc/nagios/servers/
+  register: servers_result
+
+- name: Create servers directory
+  file:
+    path: /etc/nagios/servers
+    state: directory
+  become: true
+  when:
+    - servers_result.stat.exists == False
+
+
+- name: Create a cfg file for each host
+  template: src="linux_server.cfg" dest="/etc/nagios/servers/{{ item }}.cfg"
+  with_items: "{{ groups['servers'] }}" 
+  register: nagios_needs_restart
+  become: true
+  
+
+- name: Check if resource.cfg exists
+  stat:
+    path: /etc/nagios/private/resource.cfg
+  register: RES_result
+
+
+- name: Create resource.cfg 
+  template: src=resource.cfg.j2 dest=/etc/nagios/private/resource.cfg
+  become: true
+  when:
+    - RES_result.stat.exists == False
+
+
+#- name: Check if servers.cfg exists
+#  stat:
+#    path: /etc/nagios/hostgroups/servers.cfg
+#  register: SRV_result
+
+
+- name: Create servers1.cfg in /etc/nagios/hostgroups/
+  template: src=servers1.cfg.j2 dest=/etc/nagios/hostgroups/servers1.cfg
+  become: true
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+
+- name: Create servers2.cfg in /etc/nagios/hostgroups/
+  template: src=servers2.cfg.j2 dest=/etc/nagios/hostgroups/servers2.cfg
+  become: true
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+
+- name: Check if commands.cfg exists
+  stat:
+    path: /etc/nagios/conf.d/commands.cfg
+  register: commands_result
+
+
+- name: Create nagios monitoring templates
+  template: src={{ item + ".j2" }}
+            dest=/etc/nagios/conf.d/{{ item }}
+            force=yes
+  with_items:
+    - commands.cfg
+  register: nagios_needs_restart
+  become: true
+  when:
+    - commands_result.stat.exists == False
+
+
+- name: Check if objects directroy exists
+  stat:
+    path: /etc/nagios/objects/
+  register: OBJ_result
+
+- name: Create objects directory
+  file:
+    path: /etc/nagios/objects
+    state: directory
+  become: true
+  when:
+    - OBJ_result.stat.exists == False
+
+
+- name: Check if localhost.cfg exists
+  stat:
+    path: /etc/nagios/objects/localhost.cfg
+  register: localhost_result
+
+- name: Check if contacts.cfg exists
+  stat:
+    path: /etc/nagios/objects/contacts.cfg
+  register: contacts_result
+
+- name: Create the nagios contact template and localhost config
+  template: src={{ item + ".j2" }}
+            dest=/etc/nagios/objects/{{ item }}
+  with_items:
+    - contacts.cfg
+    - localhost.cfg
+  become: true
+  when:
+    - contacts_result.stat.exists == False
+    - localhost_result.stat.exists == False  
+
+
+- name: Check if cgi.cfg exists
+  stat:
+    path: /etc/nagios/cgi.cfg
+  register: cgi_result
+
+
+- name: Create the nagios user CGI template
+  template: src={{ item + ".j2" }}
+            dest=/etc/nagios/{{ item }}
+  with_items:
+    - cgi.cfg
+  become: true
+  when:
+    - cgi_result.stat.exists == False
+
+
+- name: Check if commands.cfg exists
+  stat:
+    path: /etc/nagios/objects/commands.cfg
+  register: COM_result
+
+- name: Copy commands.cfg to /etc/nagios/objects/
+  copy: src=commands.cfg dest=/etc/nagios/objects/
+  become: true
+  when:
+    - COM_result.stat.exists == False
+
+
+- name: Add nrpe command if commands.cfg exists
+  blockinfile:
+    path:  /etc/nagios/objects/commands.cfg
+    block: |
+      define command {
+       command_name                   check_nrpe
+       command_line                   /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+      }    
+  when:
+    - COM_result.stat.exists == True
+
+
+- name: Check if templates.cfg exists
+  stat:
+    path: /etc/nagios/objects/templates.cfg
+  register: TEM_result
+
+- name: Copy templates.cfg to /etc/nagios/objects/
+  copy: src=templates.cfg dest=/etc/nagios/objects/
+  become: true
+  when:
+    - TEM_result.stat.exists == False
+
+
+- name: Check if timeperiods.cfg exists
+  stat:
+    path: /etc/nagios/objects/timeperiods.cfg
+  register: TIME_result
+
+- name: Copy timeperiods.cfg to /etc/nagios/objects/
+  copy: src=timeperiods.cfg dest=/etc/nagios/objects/
+  become: true
+  when:
+    - TIME_result.stat.exists == False
+
+
+#PagerDuty 
+
+- name: Create checkresults directory for Nagios
+  shell: mkdir -p /var/log/nagios/spool/checkresults
+  become: true
+  args:
+    warn: false
+
+- name: Change ownership of /var/log/nagios
+  shell: chown -R nagios:nagios /var/log/nagios
+  become: true
+  args:
+    warn: false
+
+- name: Copy pdagent-repo template
+  template:
+    src: pdagent-repo.j2
+    dest: /etc/yum.repos.d/pdagent.repo
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+- name: Install pdagent
+  yum:
+    name: pdagent
+    state: present
+  become: true
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+- name: Install pdagent integration
+  yum:
+    name: pdagent-integrations
+    state: present
+  become: true
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+- name: updating pdagent & pdagent-integration
+  shell: yum update pdagent pdagent-integrations
+  become: true
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+  args:
+    warn: false
+
+- name: Copy pdagent
+  copy:
+    src: /var/lib/pdagent/scripts/pdagent.service
+    dest: /etc/systemd/system/pdagent.service
+    owner: root
+    group: root
+    mode: 0644
+    remote_src: yes
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+- name: Reload the systemctl daemon
+  shell: systemctl daemon-reload
+  become: true
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+
+- name: Get pagerduty_nagios.cfg from Github
+  shell: wget https://raw.githubusercontent.com/PagerDuty/pdagent-integrations/master/pagerduty_nagios.cfg
+  environment:
+    http_proxy: http://bdmzproxyout.risk.regn.net:80
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  become: true
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+  args:
+    warn: false
+
+
+- name: Adding PD integration to the conf file
+  lineinfile:
+        path: /home/centos/pagerduty_nagios.cfg
+        regex: 'pager                                    YOUR-SERVICE-KEY-HERE\s+'
+        line: '       pager                                    6de75a75c7d34f05d091d7f5bc50ba27'
+
+
+- name: Move pagerduty_nagios.cfg
+  command: mv /home/centos/pagerduty_nagios.cfg /etc/nagios
+  become: true
+
+
+- name: Adding pagerduty_nagios.cfg path
+  lineinfile:
+    path: /etc/nagios/nagios.cfg
+    regexp: '^cfg_file='
+    line: 'cfg_file=/etc/nagios/pagerduty_nagios.cfg'
+
+
+- name: Adding pagerduty user to the contacts
+  lineinfile:
+        path: /etc/nagios/objects/contacts.cfg
+        regex: 'members                 nagiosadmin\s+'
+        insertafter: nagiosadmin
+        line: '        members                 nagiosadmin,pagerduty'
+
+
+- name: Restart Nagios service
+  service:
+    name: nagios
+    state: restarted
+
+
+- name: Get pagerduty.cgi
+  shell: wget https://raw.githubusercontent.com/mdcollins05/pd-nag-connector/master/pagerduty.cgi
+  environment:
+    http_proxy: http://bdmzproxyout.risk.regn.net:80
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  become: true
+  args:
+    warn: false
+
+
+- name: Add command_file to pagerduty.cgi
+  lineinfile:
+        path: /home/centos/pagerduty.cgi
+        regex: '^# Nagios/Ubuntu defaults\s+'
+        insertafter: Ubuntu
+        line:  "        'command_file' => '/var/spool/nagios/cmd/nagios.cmd'"
+
+
+- name: Remove the default command_file path
+  ansible.builtin.lineinfile:
+    path: /home/centos/pagerduty.cgi
+    state: absent
+    regexp: "'command_file' => '/var/lib/nagios3/rw/nagios.cmd', # External commands file"
+
+
+- name: Move pagerduty.cgi
+  command: mv /home/centos/pagerduty.cgi /usr/lib64/nagios/cgi-bin/
+  become: true
+
+
+- name: Change permission of pagerduty.cgi
+  shell: chmod +x /usr/lib64/nagios/cgi-bin/pagerduty.cgi
+  become: true
+  args:
+    warn: false
+
+- name: Change permission of cgi-bin directory
+  shell: chmod 777 /usr/lib64/nagios/cgi-bin
+  become: true
+  args:
+    warn: false
+###################################
+
+- name: Apply SELinux boolean nagios_run_sudo
+  seboolean: name=nagios_run_sudo state=yes persistent=yes
+  ignore_errors: true
+  become: true
+
+- name: Apply SELinux boolean logging_syslogd_run_nagios_plugins
+  seboolean: name=logging_syslogd_run_nagios_plugins state=yes persistent=yes
+  ignore_errors: true
+  become: true
+
+
+- name: Create nagios socket tmp files
+  file:
+    path=/var/log/nagios/rw
+    state=directory
+    owner=nagios
+    group=nagios
+    mode=0777
+    seuser=system_u
+  become: true
+
+- name: Create nagios results directory
+  file:
+    path=/var/log/nagios/spool/checkresults
+    state=directory
+    owner=nagios
+    group=nagios
+    mode=0755
+    seuser=system_u
+  become: true
+
+
+- name: Check/fix systemd service file
+  lineinfile: dest=/usr/lib/systemd/system/nagios.service \
+          regexp="^ExecStopPost=" \
+          line="ExecStopPost=/usr/bin/rm -f /var/spool/nagios/cmd/nagios.cmd /var/log/nagios/rw/nagios.qh"
+  register: systemd_nagios_changed
+  become: true
+
+
+- name: Set HTTP Listen Port
+  lineinfile: dest=/etc/httpd/conf/httpd.conf \
+          regexp="^Listen" \
+          line="Listen {{nagios_http_port}}"
+  become: true
+
+- name: Reload Systemd if needed
+  command: systemctl daemon-reload
+  when: systemd_nagios_changed !=0
+  become: true
+
+- name: Start nagios service
+  command: systemctl restart nagios.service
+  when: nagios_needs_restart != 0
+  become: true
+
+- name: Set nagios to start on boot
+  command: systemctl enable nagios.service
+  ignore_errors: true
+  become: true
+
+- name: Setup HTTPD service
+  command: systemctl enable httpd.service
+  ignore_errors: true
+  when: nagios_needs_restart !=0
+  become: true
+
+- name: Restart HTTPD service
+  command: systemctl restart httpd.service
+  ignore_errors: true
+  when: nagios_needs_restart !=0
+  become: true
+

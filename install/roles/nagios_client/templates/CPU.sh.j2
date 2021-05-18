@@ -1,0 +1,20 @@
+#!/bin/bash
+
+msg="OK: "
+
+cpu_usage=`top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+cpu_usage=${cpu_usage%.*}
+
+if [ $cpu_usage -gt 50 ]; then
+  msg="WARNING - CPU Usage Exceeded 50 % threshold: "
+exit_code=1
+fi
+
+if [ $cpu_usage -gt 80 ]; then
+  msg="CRITICAL - CPU Usage Exceeded 80 % threshold: "
+  exit_code=2
+fi
+
+echo "$msg$cpu_usage %"
+exit $exit_code
+

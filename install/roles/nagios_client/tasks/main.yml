@@ -1,0 +1,540 @@
+---
+
+- name: Configure dpkg
+  shell: dpkg --configure -a
+  become: true
+  when: ((ansible_distribution == "Ubuntu")) and ((ansible_distribution_major_version == "18"))
+
+- name: apt-get update
+  shell: apt-get update
+  become: true
+  when: ansible_distribution == "Ubuntu"
+  args:
+    warn: false
+ 
+
+- name: Upgrade the OS (apt-get dist-upgrade)
+  apt:
+    upgrade: dist
+  when: ((ansible_distribution == "Ubuntu"))  and ((ansible_distribution_major_version == "18"))
+
+
+- name: Install required packages for Ubuntu
+  apt:
+   pkg:
+    - apt-transport-https
+    - autoconf 
+    - bc 
+    - gawk 
+    - dc 
+    - build-essential 
+    - gcc 
+    - libc6 
+    - make 
+    - apache2 
+    - libapache2-mod-php 
+    - libgd-dev 
+    - libmcrypt-dev 
+    - libssl-dev 
+    - snmp 
+    - libnet-snmp-perl 
+    - gettext
+   state: latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+- name: Install PHP for Ubuntu
+  apt: name=php state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+- name: Install php-cgi
+  apt: name=php-cgi state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+- name: Install php libraries
+  apt: name=libapache2-mod-php state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+#Qualys
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: make sure /etc/ansible/facts.d exists
+  file:
+    path: /etc/ansible/facts.d/
+    state: directory
+  tags: [facts]
+
+- name: template qualys-cloud-agent.fact
+  template:
+    src: qualys_cloud_agent.fact.j2
+    dest: /etc/ansible/facts.d/qualys_cloud_agent.fact
+    mode: 0755
+  tags: [facts]
+
+- name: template proxy configuration for agent if needed (normally the server can get directly out to qualys)
+  template:
+    src: qualys-cloud-agent.proxy.j2
+    dest: /etc/sysconfig/qualys-cloud-agent
+  notify: restart qualys-cloud-agent
+  tags: [ never,proxy ]
+#End of Qualys
+
+
+- name: Install php-common
+  apt: name=php-common state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+
+- name: Install php-pear
+  apt: name=php-pear state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+- name: Install php-mbstring
+  apt: name=php-mbstring state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+
+- name: Install NRPE for Ubuntu
+  apt: name=nagios-nrpe-server state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+- name: Install Monitoring Plugins for Ubuntu
+  apt: name=monitoring-plugins state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+- name: Install Nagios NRPE Plugin for Ubuntu
+  apt: name=nagios-nrpe-plugin state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+- name: Install NRPE plugins For Ubuntu
+  apt: name=nagios-plugins-basic state=latest
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+
+- name: Check if nrpe.cfg exists
+  stat:
+    path: /etc/nagios/nrpe.cfg
+  register: nrpe_result
+
+
+- name: Copy nrpe template if nrpe.cfg does not exist
+  template:
+    src: nrpe.cfg.j2
+    dest: /etc/nagios/nrpe.cfg
+  become: true
+  when:
+    - nrpe_result.stat.exists == False
+
+
+- name: Add the PagerDuty repository key
+  shell: wget -O - https://packages.pagerduty.com/GPG-KEY-pagerduty | sudo apt-key add -
+  become: true
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+  args:
+    warn: false
+
+- name: Add the PagerDuty repository
+  shell: sh -c 'echo "deb https://packages.pagerduty.com/pdagent deb/" >/etc/apt/sources.list.d/pdagent.list'
+  become: true
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+
+- name: apt-get update after adding PagerDuty Repo
+  shell: apt-get update
+  become: true
+  when: ansible_distribution == "Ubuntu"  
+  args:
+    warn: false
+
+- name: Install pdagent 
+  apt: name=pdagent  state=latest
+  become: true
+  environment:
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+- name: Install pdagent integration
+  apt: name=pdagent-integrations  state=latest
+  become: true
+  environment:
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+  
+
+
+- name: Restart pdagent service
+  service: name=pdagent state=restarted enabled=yes
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+
+- name: Copy pdagent-repo template 
+  template:
+    src: pdagent-repo.j2
+    dest: /etc/yum.repos.d/pdagent.repo
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+    
+    
+- name: Install pdagent 
+  yum: 
+    name: pdagent  
+    state: present
+  become: true
+  environment:
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+- name: Install pdagent integration
+  yum: 
+    name: pdagent-integrations 
+    state: present
+  become: true
+  environment:
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+
+- name: Restart pdagent service
+  service: name=pdagent state=restarted enabled=yes
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+  
+
+
+- name: updating pdagent & pdagent-integration
+  shell: yum update pdagent pdagent-integrations
+  become: true
+  environment:
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+  args:
+    warn: false
+
+- name: Copy pdagent 
+  copy:  
+    src: /var/lib/pdagent/scripts/pdagent.service 
+    dest: /etc/systemd/system/pdagent.service 
+    owner: root
+    group: root
+    mode: 0644
+    remote_src: yes
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+- name: Reload the systemctl daemon
+  shell: systemctl daemon-reload
+  become: true
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+- name: Unset nrpe.cfg immutable
+  shell: chattr -i /etc/nagios/nrpe.cfg
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+
+- name: Update sudoers for nagios user
+  lineinfile: "dest=/etc/sudoers insertafter='^# User privilege specification'  line='nagios          ALL=(ALL) NOPASSWD: /usr/lib/nagios/plugins/, /usr/bin/ipmitool, /usr/bin/basename, /usr/bin/getconf, /usr/sbin/service'"
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+- name: Restart nrpe Ubuntu
+  service: name=nagios-nrpe-server state=restarted enabled=yes
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+
+- name: Import EPEL GPG Key Centos 7
+  rpm_key: 
+    key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+    state: present
+  become: true
+  environment:
+    https_proxy: http://admzproxyout.risk.regn.net:80
+  when:
+     
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+
+- name: Check for EPEL repo Centos 7
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+  become: true
+  environment:
+    https_proxy: http://admzproxyout.risk.regn.net:80
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+
+- name: Install NRPE and Common Plugins for Centos 7
+  yum: 
+    name: "{{ packages }}"
+    state: present
+  become: true
+  vars:
+    packages:
+      - nrpe
+      - nagios-plugins-load
+      - nagios-plugins-nrpe
+      - nagios-plugins-uptime
+      - nagios-plugins-swap
+      - nagios-plugins-procs
+      - nagios-plugins-users
+      - nagios-plugins-disk
+      - nagios-plugins-tcp
+      - libsemanage-python
+      - autoconf
+      - bc
+      - gawk
+      - gcc
+      - gettext
+      - php
+      - php-cgi
+      - php-common
+      - php-pear
+      - php-mbstring
+  environment:
+    https_proxy: http://admzproxyout.risk.regn.net:80
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+
+
+- name: Import EPEL GPG Key Centos 8
+  rpm_key: 
+    key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
+    state: present
+  become: true
+  environment:
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+- name: Check for EPEL repo Centos 8
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+    state: present
+  become: true
+  environment:
+    https_proxy: http://bdmzproxyout.risk.regn.net:80
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+
+
+- name: Install NRPE and Common Plugins for Centos 8
+  yum: 
+    name: "{{ packages }}"
+    state: present
+  become: true
+  environment:
+    http_proxy: http://bdmzproxyout.risk.regn.net:80
+  vars:
+    packages:
+      - nrpe
+      - policycoreutils-python-utils
+      - autoconf
+      - bc
+      - gawk
+      - gcc
+      - gettext
+      - php
+      - php-cgi
+      - php-common
+      - php-pear
+      - php-mbstring
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+
+- name: Remove immutable from nrpe.cfg.
+  become: yes
+  file: 
+   path: /etc/nagios/nrpe.cfg
+   attributes: '-i'
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+#- set_fact:
+#     NserverIP: "{{ hostvars[item]['ansible_eth0']['ipv4']['address'] }}" 
+#  with_items:
+#     - "{{ groups['nagios'] }}"
+#  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+
+#- set_fact:
+#     NserverIP: "{{ hostvars[item] ['ansible_default_ipv4']['address'] }}"
+#  with_items:
+#     - "{{ groups['nagios'] }}"
+#  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+
+#- find:
+#    name: /etc/nagios/nrpe.cfg
+#    contains: NserverIP
+#  register: found
+
+
+- name: Checking to avoid duplicate Nagios server IP in nrpe.cfg
+  lineinfile:
+    path: /etc/nagios/nrpe.cfg
+    regexp: mgm_IP.stdout
+    state: absent
+  become: true
+  check_mode: yes
+  changed_when: false
+  register: check
+
+- debug:
+    var: check
+
+
+- name: Configure nagios server IP in nrpe configuration file
+  lineinfile:
+    path: /etc/nagios/nrpe.cfg
+    backrefs: yes
+    regexp: "^(.*allowed_hosts.*)$"
+    line: '\1,{{mgm_IP.stdout}}'
+  become: true
+  when: check.found|default('')
+
+
+
+#- name: Configure nagios server IP in nrpe configuration file
+#  lineinfile: 
+#    path: /etc/nagios/nrpe.cfg
+#    backrefs: yes
+#    regexp: "^(.*allowed_hosts.*)$"
+#    line: '\1,{{NserverIP}}' 
+#  become: true
+
+#LexisNexis Scripts 
+- name: Adding ntp script for Centos7
+  ansible.builtin.lineinfile:
+    path: /etc/nagios/nrpe.cfg
+    line: command[check_ntp_peer]=/usr/lib64/nagios/plugins/check_ntp_peer -H localhost -w 1 -c 2
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+
+
+- name: Adding chronyd script for Centos8
+  ansible.builtin.lineinfile:
+    path: /etc/nagios/nrpe.cfg
+    line: command[CHRONY]=/usr/local/scripts/CHRONY.sh
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+
+
+- name: Adding scripts paths of the management server to nrpe.cfg
+  blockinfile:
+    path: /etc/nagios/nrpe.cfg
+    block: |
+      command[CPU]=/usr/local/scripts/CPU.sh
+      command[SSH]=/usr/local/scripts/SSH.sh
+      command[NRPE]=/usr/local/scripts/NRPE.sh
+      command[var_spool_check]=/usr/local/scripts/var_spool_check.sh
+      command[CRON]=/usr/local/scripts/CRON.sh
+      command[fail2ban]=/usr/local/scripts/fail2ban.sh
+      command[SNMP]=/usr/local/scripts/SNMP.sh
+      command[SSSD]=/usr/local/scripts/SSSD.sh
+      command[Mount_Check]=/usr/local/scripts/Mount_Check.sh -A
+      command[check_mem_usage]=/usr/local/scripts/check_mem_usage.sh
+      command[QUALYS]=/usr/local/scripts/QUALYS.sh
+      command[AUDIT]=/usr/local/scripts/AUDIT.sh
+      command[RSYSLOG]=/usr/local/scripts/RSYSLOG.sh
+      command[var_log_check]=/usr/local/scripts/var_log_check.sh
+      command[WAZUH]=/usr/local/scripts/WAZUH.sh
+ 
+
+- name: Creating /usr/local/scripts directory
+  shell: mkdir -p /usr/local/scripts
+  become: true
+  args:
+    warn: false
+
+
+- name: Copying scripts from the Template
+  template: src={{ item + ".j2" }}
+            dest=/usr/local/scripts/{{ item }}
+  with_items:
+    - CPU.sh
+    - SSH.sh
+    - NRPE.sh
+    - SNMP.sh
+    - QUALYS.sh
+    - CRON.sh
+    - fail2ban.sh
+    - var_spool_check.sh
+    - Mount_Check.sh
+    - SSSD.sh
+    - CHRONY.sh
+    - check_mem_usage.sh
+    - AUDIT.sh
+    - RSYSLOG.sh
+    - var_log_check.sh
+    - WAZUH.sh
+  become: true
+
+- name: Changing permission of the scripts
+  shell: chmod 755 /usr/local/scripts/{{ item }}
+  with_items:
+    - CPU.sh
+    - SSH.sh
+    - NRPE.sh
+    - SNMP.sh
+    - QUALYS.sh
+    - CRON.sh
+    - fail2ban.sh
+    - var_spool_check.sh
+    - Mount_Check.sh
+    - SSSD.sh
+    - CHRONY.sh
+    - check_mem_usage.sh
+    - AUDIT.sh
+    - RSYSLOG.sh
+    - var_log_check.sh
+    - WAZUH.sh
+  become: true
+  args:
+    warn: false
+################################################
+
+- name: Restart NRPE service
+  command: systemctl restart nrpe.service
+  ignore_errors: true
+  become: true
+  when: ((ansible_os_family == "RedHat") or (ansible_distribution_major_version|int < 7))
+
+- name: Set NRPE to start on boot
+  command: systemctl enable nrpe.service
+  ignore_errors: true
+  become: true
+
+
+- name: Add immutable to nagios.cfg.
+  become: yes
+  file: 
+   path: /etc/nagios/nrpe.cfg
+   attributes: '+i'
+
+- name: Restart nrpe Ubuntu
+  service: name=nagios-nrpe-server state=restarted enabled=yes
+  when: ((ansible_os_family == "Debian")) or ((ansible_distribution == "Ubuntu"))
+
+##################
+#- name: Set the management server's IP
+#  shell: host alinuxcore04 | awk '{ print $4 }'
+#  register: mgm_IP
+
+
+#- name: Set the management server's IP
+#  shell: host "{{ groups['nagios'] }}" | awk '{ print $4 }'
+#  register: mgm_IP
+

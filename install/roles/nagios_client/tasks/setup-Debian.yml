@@ -1,0 +1,19 @@
+---
+# tasks file for qualys_agent on Debian
+
+- name: deb Download Latest Version of Qualys Cloud Agent
+  copy:
+    src: qualys-cloud-agent.x86_64.deb
+    dest: /tmp/qualys-cloud-agent.x86_64.deb
+
+- name: Execute the Installation Script on apt
+  apt:
+    deb: /tmp/qualys-cloud-agent.x86_64.deb
+    state: present
+  become: yes
+  become_method: sudo
+
+- name: Execute the Activation Script
+  shell: /usr/local/qualys/cloud-agent/bin/qualys-cloud-agent.sh ActivationId={{ activationid }} CustomerId={{ customerid }}
+  become: yes
+  become_method: sudo

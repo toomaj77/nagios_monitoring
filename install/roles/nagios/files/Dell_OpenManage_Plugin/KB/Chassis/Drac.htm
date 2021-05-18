@@ -1,0 +1,921 @@
+
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="MS.LOCALE" content="EN">
+<title>DRAC/CMC Messages Reference</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+ <link rel="StyleSheet" href="catalog.css" type="text/css" />
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+<h1><a name="wp1039152"></a> DRAC/CMC Messages </h1>
+
+
+<p class="title">Dell Remote Access controller/Dell Chassis Management Controller Messages Reference</p>
+
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_WatchDog">WatchDog Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_Battery">Battery Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_ESMCommunication">ESMCommunication Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_Power">Power Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_Authentication">Authentication Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_TestTrap">TestTrap Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_CMC">ChassisManagementController Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_TemperatureProbe">TemperatureProbe Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_SELThreshold">SELThreshold Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_SystemEventLog">SystemEventLog Messages 
+</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#wp1042825_VoltageProbe">VoltageProbe Messages 
+</A></P>
+
+
+<br>
+<p>The following tables lists the events and its corresponding description, along with its severity ,cause and Resolution. </p>
+
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">NOTE: </SPAN>For corrective actions, see the appropriate documentation.</td>
+</tr>
+</table>
+<hr noshade size="1"><h2><a name="wp1042825_WatchDog"></a>WatchDog Messages 
+</h2>
+
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1007</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC has detected that the system
+watchdog has expired indicating a
+system hang</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Critical</p>
+
+
+</td><td valign="top" align="left"><p>RAC has detected the system watchdog expired
+(normally indicating a system hang).</p>
+
+</td>
+</tr>
+
+</table>
+
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_Battery"></a>Battery Messages 
+</h2>
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1008</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC Battery charge is below 25%
+indicating that the battery may only be able to power the DRSC for 8-10 minutes</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>RAC detected its battery charge is below 25% full.</p>
+
+</td>
+</tr>
+
+</table>
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_ESMCommunication"></a>ESMCommunication Messages 
+</h2>
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1004</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC is communicating normally with the baseboard management controller
+(ESM)</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Information</p>
+
+
+</td><td valign="top" align="left"><p>RAC detected a system power state change to power-off.</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1003</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC cannot communicate with the
+baseboard management controller (ESM)</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>RAC lost communication with ESM.</p>
+
+</td>
+</tr>
+
+</table>
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_Power"></a>Power Messages 
+</h2>
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1006</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC has detected  a system power state change to powered-on</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Information</p>
+
+
+</td><td valign="top" align="left"><p>RAC detected a system power state change to power-on.</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1005</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC has detected a system power state change to powered-off</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Critical</p>
+
+
+</td><td valign="top" align="left"><p>RAC detected a system power state change to power-off.</p>
+
+</td>
+</tr>
+
+</table>
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_Authentication"></a>Authentication Messages 
+</h2>
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1002</p>
+<td valign="top" align="left">
+
+<p class="screen">RAC Authentication failures during a
+time period have exceeded a threshold</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>RAC login failure caused by authentication failure, number of concurrent logins exceed
+limit, or permission denied.</p>
+
+</td>
+</tr>
+
+</table>
+
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_TestTrap"></a>TestTrap Messages 
+</h2>
+
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1001</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC generated a test trap event in
+response to a user request</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Information</p>
+
+
+</td><td valign="top" align="left"><p>A test SNMP trap generated by a RAC.</p>
+
+</td>
+</tr>
+
+</table>
+
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_CMC"></a>ChassisManagementController Messages 
+</h2>
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>2000</p>
+<td valign="top" align="left">
+
+<p class="screen">CMC generated a test trap</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Information</p>
+
+
+</td><td valign="top" align="left"><p>A user-initiated test trap was issued, 
+through the  CMC GUI or RACADM CLI.</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>2002</p>
+<td valign="top" align="left">
+
+<p class="screen">CMC reported a return-to-normal or
+ informational event</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Information</p>
+
+
+</td><td valign="top" align="left"><p>CMC informational event, as described in the
+ drsCAMessage variable binding supplied with the alert.</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>2003</p>
+<td valign="top" align="left">
+
+<p class="screen">CMC reported a warning</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>CMC warning event, as described in the drsCAMessage variable supplied with the alert. 
+</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>2005</p>
+<td valign="top" align="left">
+
+<p class="screen">CMC reported a non-recoverable event</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Critical</p>
+
+
+</td><td valign="top" align="left"><p>CMC non-recoverable event, as described in the drsCAMessage variable binding supplied with the alert. 
+ 
+
+</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>2004</p>
+<td valign="top" align="left">
+
+<p class="screen">CMC reported a critical event</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Critical</p>
+
+
+</td><td valign="top" align="left"><p>CMC critical event, as described in the 
+drsCAMessage variable binding supplied with the alert.</p>
+
+</td>
+</tr>
+
+</table>
+
+
+
+
+
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_TemperatureProbe"></a>TemperatureProbe Messages 
+</h2>
+
+
+
+
+
+
+
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1009</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC Temperature probe has returned to a normal value</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Information</p>
+
+
+</td><td valign="top" align="left"><p>RAC temperature probe reading returned to
+normal.</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1010</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC Temperature probe has detected a Warning value</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>RAC temperature probe reading exceeded
+warning  threshold</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1011</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC Temperature probe has detected a failure (or critical) value</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Critical</p>
+
+
+</td><td valign="top" align="left"><p>RAC temperature probe reading exceeded
+critical threshold.</p>
+
+</td>
+</tr>
+
+</table>
+
+
+
+
+
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_SELThreshold"></a>SELThreshold Messages 
+</h2>
+
+
+
+
+
+
+
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1019</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC
+system event
+log is 100%
+full</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>RAC
+detected
+system event
+log is 100%
+full.</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1018</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC
+system event
+log is 90%
+full</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>RAC
+detected
+system event
+log is 90%
+full.</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1017</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC
+system event
+log is 80%
+full</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>RAC
+detected
+system event
+log is 80%
+full.</p>
+
+</td>
+</tr>
+
+</table>
+
+
+
+
+
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_SystemEventLog"></a>SystemEventLog Messages 
+</h2>
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1020</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC
+has detected
+a new event
+in the
+System
+Event Log
+with
+Severity:
+Normal</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Information</p>
+
+
+</td><td valign="top" align="left"><p>RAC
+detected a
+new system
+event log with
+normal
+severity
+(detailed log
+info is in
+drsAlert
+Message
+varbind).</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1015</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC
+has detected
+a new event
+in the
+System
+Event Log
+with
+Severity:
+Warning</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>RAC
+detected a
+new system
+event log with
+warning
+severity
+(detailed log
+info is in
+drsAlert
+Message
+varbind).</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1016</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC
+has detected
+a new event
+in the
+System
+Event Log
+with
+Severity:
+Critical</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Critical</p>
+
+
+</td><td valign="top" align="left"><p>RAC
+detected a
+new system
+event log with
+critical
+severity
+(detailed log
+info is in
+drsAlert
+Message
+varbind).</p>
+
+</td>
+</tr>
+
+</table>
+
+
+
+
+
+
+</p>
+
+<hr noshade size="1"><h2><a name="wp1042825_VoltageProbe"></a>VoltageProbe Messages 
+</h2>
+
+
+<a name="wp1082630"> </a><p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1082446"></a>
+<p align="Left"><b>Event ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082448"></a>
+<p align="Left"><b>Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082450"></a>
+<p align="Left"><b>Severity</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1082452"></a>
+<p align="Left"><b>Cause</b></p>
+
+
+</th></tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1012</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC
+voltage has
+returned to a
+normal value</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Information</p>
+
+
+</td><td valign="top" align="left"><p>RAC voltage
+probe reading
+returns to
+normal.</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1013</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC
+voltage
+probe has
+detected a
+warning
+value</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Warning</p>
+
+
+</td><td valign="top" align="left"><p>RAC voltage
+probe reading
+exceeded
+warning
+threshold.</p>
+
+</td>
+</tr>
+<tr>
+<tr><td valign="top" rowspan= align="left"><p>1014</p>
+<td valign="top" align="left">
+
+<p class="screen">The RAC
+voltage
+probe has
+detected a
+failure (or
+critical)
+value</p>
+
+
+</td><td valign="top" rowspan=1 align="left"><p>Critical</p>
+
+
+</td><td valign="top" align="left"><p>RAC voltage
+probe reading
+exceeded
+critical
+threshold.</p>
+
+</td>
+</tr>
+
+</table>
+
+
+
+
+
+
+</p>
+
+<a name="wp1000320"> </a><p class="pCopyright_Line">
+  ____________________
+
+</p>
+<a name="wp998427"> </a><p class="pCopyright">
+  <span class="cBold">Information in this document is subject to change without notice.<br />©&#160;2012&#160;Dell&#160;Inc.&#160;All&#160;rights&#160;reserved.</span>
+
+</p>
+<a name="wp1001949"> </a><p class="pCopyright">
+  Reproduction of these materials in any manner whatsoever without the written permission of Dell Inc. is strictly forbidden.
+
+</p>
+<a name="wp1001950"> </a><p class="pCopyright">
+  <span style="vertical-align: baseline">Trademarks used in this text: Dell&#8482;, the DELL logo and OpenManage&#8482; are trademarks of Dell Inc. Microsoft</span><span style="vertical-align: super">®</span><span style="vertical-align: baseline">, Windows</span><span style="vertical-align: super">®</span><span style="vertical-align: baseline">, and Windows Server</span><span style="vertical-align: super">®</span><span style="vertical-align: baseline"> are either trademarks or registered trademarks of Microsoft Corporation in the United States and/or other countries. Red Hat Enterprise Linux</span><span style="vertical-align: super">®</span><span style="vertical-align: baseline"> and Enterprise Linux</span><span style="vertical-align: super">®</span><span style="vertical-align: baseline"> are registered trademarks of Red Hat, Inc. in the United States and/or other countries. SUSE &#8482; is a trademark of Novell Inc. in the United States and other countries. Citrix</span><span style="vertical-align: super">®</span><span style="vertical-align: baseline">, Xen</span><span style="vertical-align: super">®</span><span style="vertical-align: baseline">, and XenServer</span><span style="vertical-align: super">®</span><span style="vertical-align: baseline"> are either registered trademarks or trademarks of Citrix Systems, Inc. in the United States and/or other countries. VMware</span><span style="vertical-align: super">®</span> is registered trademarks or trademarks of VMWare, Inc. in the United States or other countries.
+
+</p>
+<a name="wp998467"> </a><p class="pCopyright">
+  Other trademarks and trade names may be used in this document to refer to either the entities claiming the marks and names or their products. Dell Inc. disclaims any proprietary interest in trademarks and trade names other than its own.
+
+</p>
+<a name="wp998431"> </a><p class="pPaper_Date_P_N">
+  2012 - 08
+
+</p>
+
+<a name="wp1071997"> </a><p>
+
+
+</p>
+
+<hr noshade size="1">
+
+
+<p>&nbsp;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

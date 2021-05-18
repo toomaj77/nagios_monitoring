@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ps -ef | grep wazuh | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "wazuh OK - process running"
+
+else
+
+   echo "wazuh CRITICAL - No process running!"
+   exit 2
+
+fi

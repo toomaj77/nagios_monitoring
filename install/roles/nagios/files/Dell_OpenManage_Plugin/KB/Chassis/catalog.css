@@ -1,0 +1,2173 @@
+span.cBold
+{
+  font-weight: bold
+}
+span.cBold_Italic_Serif
+{
+  font-style: italic;
+  font-weight: bold
+}
+span.cFigure_ID
+{
+  color: Red
+}
+span.cHypertext_Blue
+{
+  color: PANTONE 300 CV
+}
+span.cHypertext_Bold
+{
+  color: PANTONE 300 CV;
+  font-weight: bold
+}
+span.cHypertext_Italic
+{
+  color: PANTONE 300 CV;
+  font-style: italic
+}
+span.cItalic
+{
+  font-style: italic
+}
+span.cPantone_286_CV
+{
+  color: PANTONE 286 CV
+}
+span.cQuot
+{
+  vertical-align: super
+}
+span.cScreen_Text_Italic
+{
+  font-style: italic
+}
+span.cSuperscript
+{
+  vertical-align: super
+}
+span.cSuperscript_Italic
+{
+  font-style: italic;
+  vertical-align: super
+}
+
+p.pActiveLOF
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 12pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: justified;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pActiveLOT
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 12pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: justified;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pAnchor
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pAnchor_Top_of_Page
+{
+  color: Red;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pAutoLetters
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.32in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pAutoLetters_1st
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.32in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pAutoNumbers
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.15in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pAutoNumbers_1st
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.15in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pAutoNumbers_1st_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0.15in;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pAutoNumbers_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0.15in;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pBodyRelative
+{
+  margin-bottom: 6pt;
+  margin-top: 6pt
+}
+div.pBullet
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.16in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.15in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Indent
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.32in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Indent_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0.32in;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Note
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0.32in;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Sub
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.32in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Sub_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0.32in;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Sub__Warranty
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0.32in;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Sub_Indent
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.54in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Sub_Indent_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0.54in;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Sub_Warranty
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0.32in;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pBullet_Warranty
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0.15in;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pCallout
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pCaution
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pCaution_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 21pt;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pCaution_New
+{
+  margin-bottom: 4pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left
+}
+p.pCaution_No_Caution
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 6pt;
+  margin-left: 21pt;
+  margin-right: 0pt;
+  margin-top: 6pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -21pt;
+  text-transform: none
+}
+p.pComment
+{
+  color: Red;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pConfidential
+{
+  color: Red;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pContentsTitle
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 22pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 28pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pCopyright
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 5pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pCopyright_Line
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 8pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 8pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pDivider
+{
+  color: Red;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pFigure_Title
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pFigure_Title_C
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pFigure_TitleLOF
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5pt;
+  margin-left: 144pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -72pt;
+  text-transform: none
+}
+p.pFilename
+{
+  color: Red;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pFooter_Left
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pFooter_Right
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pFootnote
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 30pt;
+  margin-right: 18pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -12pt;
+  text-transform: none
+}
+p.pGlossary_paragraph
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pGlossaryTitle
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 22pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 8pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 8pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pGuideTitle1
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 24pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 7pt;
+  text-align: right;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pGuideTitle2
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 28pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 10pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 8pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_1_Appendix_Title
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 22pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_1_NonTOC_Section_Title
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 22pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 97pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_1_Section_Title
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 22pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_2
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 16pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 14pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_2_NonTOC
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 16pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 14pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_2_Top_of_Page
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 18pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 6pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 18pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_3
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 11pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_3_NonTOC
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 11pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_4
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pHead_5
+{
+  color: Navy;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pHint
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 6pt;
+  margin-left: 20pt;
+  margin-right: 0pt;
+  margin-top: 6pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pHorizontal_Rule
+{
+  color: Red;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: normal;
+  margin-bottom: 8pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pHypertext_Marker
+{
+  color: Magenta;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pIndent
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 6pt;
+  margin-left: 21pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pIndent_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 21pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pIndent_Sub
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 6pt;
+  margin-left: 38pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pIndent_Sub_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 38pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pIndexTitle
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 22pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 28pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pLocalizedGuideTitle
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 13pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: right;
+  text-decoration: none;
+  text-indent: -18pt;
+  text-transform: none
+}
+div.pLOFTitle
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 12pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 14pt;
+  margin-left: 36pt;
+  margin-right: 0pt;
+  margin-top: 25pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pLOTTitle
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 12pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 14pt;
+  margin-left: 36pt;
+  margin-right: 0pt;
+  margin-top: 25pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pModel_Number
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 6pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pNote
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pNote_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 21pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pNote_boilerplate
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 7pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pNote_boilerplate_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pNote_Indent
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 41pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pNote_Warranty
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 5pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pNotice
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pNotice_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 3pt;
+  margin-left: 21pt;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pPaper_Date_P_N
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 16pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pParagraph
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pParagraph_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pParagraph_Top_of_Page
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 8pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pParagraph_Warranty
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 4pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pRun_In_Frame
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 6pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pRun_In_Frame_Indent
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 18pt;
+  margin-right: 0pt;
+  margin-top: 6pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -1pt;
+  text-transform: none
+}
+p.pRun_In_Frame_Notice
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 6pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pRun_In_Frame_Sidehead
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 6pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pRun_In_Head
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pRun_In_Head_No_Dash
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pScreen_Text
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 6pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pScreen_Text_Indent
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 6pt;
+  margin-left: 21pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pSection_Number_Big
+{
+  color: Black 30%;
+  font-family: Verdana, Arial;
+  font-size: 67pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pSection_Number_Box
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 45pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pSection_Number_Box_Appendix
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 45pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pSection_Title_Line
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 20pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pSidebar_Frame
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pSystemTitle
+{
+  color: Black 50%;
+  font-family: Verdana, Arial;
+  font-size: 20pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: right;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pTable_AutoLetters
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 18pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_AutoLetters_1st
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 18pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_AutoNumbers
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 10pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_AutoNumbers_1st
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 10pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_Bullet
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 10pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_Bullet_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 10pt;
+  margin-right: 0pt;
+  margin-top: 1pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_Bullet_Indent
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 18pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_Bullet_Sub
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 18pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_Bullet_Warranty
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 10pt;
+  margin-right: 0pt;
+  margin-top: 1pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_Caution
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pTable_Footnote
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Head_Center
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Head_Left
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Head_Left_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 7pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 9pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Head_Left_Warranty
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 7pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 9pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Head_Right
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 12pt;
+  text-align: right;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Indent
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 10pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Indent_Sub
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 21pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pTable_Note
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+div.pTable_Notice
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 2pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pTable_Paragraph
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Paragraph_8pt
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Paragraph_Right
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: right;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Paragraph_Run_In
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Paragraph_Warranty
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pTable_Screen_Text
+{
+  color: Black;
+  font-family: Courier New, Courier, monospace;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 4pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pTable_Title
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 9pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pTable_Title_C
+{
+  color: Black 50%;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 9pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+div.pTable_Title_E
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 9pt;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none
+}
+p.pTable_Title_ELOT
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5pt;
+  margin-left: 144pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -72pt;
+  text-transform: none
+}
+p.pTable_TitleLOT
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 5pt;
+  margin-left: 144pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -72pt;
+  text-transform: none
+}
+p.pUppercase
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 7pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 3pt;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: uppercase
+}
+p.pweb_address
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pWeb_Address_Black
+{
+  color: Black;
+  font-family: Verdana, Arial;
+  font-size: 8pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: right;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+p.pWeb_Address_White
+{
+  color: White;
+  font-family: Verdana, Arial;
+  font-size: 9pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+  margin-right: 0pt;
+  margin-top: 0pt;
+  text-align: right;
+  text-decoration: none;
+  text-indent: 0pt;
+  text-transform: none
+}
+

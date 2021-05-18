@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ps -ef | grep /usr/bin/fail2ban-server | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "fail2ban OK - process running"
+
+else
+
+   echo "fail2ban CRITICAL - No process running!"
+   exit 2
+
+fi
+

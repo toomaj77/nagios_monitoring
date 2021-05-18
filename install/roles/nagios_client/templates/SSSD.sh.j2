@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ps -ef | grep /usr/sbin/sssd | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "SSSD OK - process running"
+
+else
+
+   echo "SSSD CRITICAL - No process running!"
+   exit 2
+
+fi
+

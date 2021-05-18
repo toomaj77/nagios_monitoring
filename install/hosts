@@ -1,0 +1,14 @@
+[nagios]
+alinuxcore04
+#centos7-mgm
+
+[servers]
+#centos7-nagios
+#centos8-nagios
+#ubuntu-nagios
+alalqpnc275
+
+
+
+
+

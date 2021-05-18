@@ -1,0 +1,29 @@
+#!/bin/bash
+
+check1="`du -sm /var/spool | awk '{print $1}'`"
+df -h | grep '/var/spool$' >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+check="`df -h | grep '/var/spool$' | awk '{print $5}' | sed 's/[^a-zA-Z0-9]//g'`"
+  if [ $check -gt 90 ]; then
+     echo "/var/spool is "$check"% used! Please clean up or extend if possible."
+     exit 2
+  else
+     echo "/var/spool is "$check"% used."
+     exit 0
+
+  fi
+
+else
+
+  if [ $check1 -gt 460 ]; then
+     echo "/var/spool is more than 460M used!(Threshold 512M) Please clean up or extend if possible."
+     exit 2
+  else
+     echo "/var/spool is "$check1"M used."
+     exit 0
+
+  fi
+fi
+

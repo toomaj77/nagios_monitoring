@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ps -ef | grep /usr/sbin/crond | grep -v grep >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+   echo "Crond OK - process running"
+
+else
+
+   echo "Crond CRITICAL - No process running!"
+   exit 2
+
+fi
+

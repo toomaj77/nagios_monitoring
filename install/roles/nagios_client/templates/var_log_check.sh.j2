@@ -1,0 +1,30 @@
+#!/bin/bash
+
+check1="`du -sm /var/log | awk '{print $1}'`"
+df -h | grep '/var/log$' >> /dev/null
+CheckExit=$?
+
+if [ $CheckExit = 0 ]; then
+check="`df -h | grep '/var/log$' | awk '{print $5}' | sed 's/[^a-zA-Z0-9]//g'`"
+  if [ $check -gt 90 ]; then
+     echo "/var/log is "$check"% used! Please clean up or extend if possible."
+     exit 2
+  else
+     echo "/var/log is "$check"% used."
+     exit 0
+
+  fi
+
+else
+
+
+  if [ $check1 -gt 460 ]; then
+     echo "/var/log is more than 460M used!(Threshold 512M) Please clean up or extend if possible."
+     exit 2
+  else
+     echo "/var/log is "$check1"M used."
+     exit 0
+
+  fi
+fi
+
